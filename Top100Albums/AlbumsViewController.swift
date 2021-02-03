@@ -9,27 +9,60 @@ import UIKit
 
 class AlbumsViewController: UIViewController {
 
+    let tableView = UITableView()
+    let titleLabel = UILabel()
+
     override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = #colorLiteral(red: 0.9686274529, green: 0.78039217, blue: 0.3450980484, alpha: 1)
         setupView()
     }
 
     private func setupView() {
+        view.backgroundColor = #colorLiteral(red: 0.9715528248, green: 0.8270135056, blue: 0.4844910291, alpha: 1)
         setupTitle()
-    }
-    
-    private func setupTitle() {
-        let title = UILabel()
-        title.text = "Top 100 Albums"
-        title.font = title.font.withSize(25)
-        title.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(title)
-        NSLayoutConstraint.activate([
-              title.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            title.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20)
-            ])
+        setupAlbums()
     }
 
+    private func setupTitle() {
+        titleLabel.text = "Top 100 Albums"
+        titleLabel.font = UIFont(name: "HelveticaNeue-Thin", size: 32)
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(titleLabel)
+        NSLayoutConstraint.activate([
+            titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20)
+        ])
+    }
+
+    private func setupAlbums() {
+        tableView.register(AlbumTableViewCell.self, forCellReuseIdentifier: "albumCell")
+        tableView.backgroundColor = .clear
+        tableView.dataSource = self
+        tableView.delegate = self
+        view.addSubview(tableView)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+        ])
+    }
+
+}
+
+extension AlbumsViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "albumCell", for: indexPath) as! AlbumTableViewCell
+        return cell
+    }
+}
+
+extension AlbumsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+    }
 }
 

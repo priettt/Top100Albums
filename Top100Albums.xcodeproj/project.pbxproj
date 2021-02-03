@@ -14,6 +14,9 @@
 		609E9B2F25C5B2F700132653 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 609E9B2D25C5B2F700132653 /* LaunchScreen.storyboard */; };
 		609E9B3A25C5B2F800132653 /* Top100AlbumsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609E9B3925C5B2F800132653 /* Top100AlbumsTests.swift */; };
 		609E9B4525C5B2F800132653 /* Top100AlbumsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609E9B4425C5B2F800132653 /* Top100AlbumsUITests.swift */; };
+		65B6808E1A7D476962601782 /* AlbumCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B68BD78B1DD943D2889D70 /* AlbumCellData.swift */; };
+		65B685801728E4C6022A45F3 /* UIAlbumData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B688C96F3730EB14F41F61 /* UIAlbumData.swift */; };
+		65B689ACDE25906C6D1971E8 /* AlbumTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B68E5748E557BD96291C21 /* AlbumTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,9 @@
 		609E9B4025C5B2F800132653 /* Top100AlbumsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Top100AlbumsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		609E9B4425C5B2F800132653 /* Top100AlbumsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Top100AlbumsUITests.swift; sourceTree = "<group>"; };
 		609E9B4625C5B2F800132653 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		65B688C96F3730EB14F41F61 /* UIAlbumData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIAlbumData.swift; sourceTree = "<group>"; };
+		65B68BD78B1DD943D2889D70 /* AlbumCellData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumCellData.swift; sourceTree = "<group>"; };
+		65B68E5748E557BD96291C21 /* AlbumTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +109,9 @@
 				609E9B2B25C5B2F700132653 /* Assets.xcassets */,
 				609E9B2D25C5B2F700132653 /* LaunchScreen.storyboard */,
 				609E9B3025C5B2F700132653 /* Info.plist */,
+				65B68E5748E557BD96291C21 /* AlbumTableViewCell.swift */,
+				65B688C96F3730EB14F41F61 /* UIAlbumData.swift */,
+				65B68BD78B1DD943D2889D70 /* AlbumCellData.swift */,
 			);
 			path = Top100Albums;
 			sourceTree = "<group>";
@@ -257,6 +266,9 @@
 				609E9B2725C5B2F700132653 /* AlbumsViewController.swift in Sources */,
 				609E9B2325C5B2F700132653 /* AppDelegate.swift in Sources */,
 				609E9B2525C5B2F700132653 /* SceneDelegate.swift in Sources */,
+				65B689ACDE25906C6D1971E8 /* AlbumTableViewCell.swift in Sources */,
+				65B685801728E4C6022A45F3 /* UIAlbumData.swift in Sources */,
+				65B6808E1A7D476962601782 /* AlbumCellData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
