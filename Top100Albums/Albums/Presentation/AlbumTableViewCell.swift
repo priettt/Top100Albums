@@ -78,7 +78,7 @@ class AlbumTableViewCell: UITableViewCell {
         ])
     }
 
-    func bind(albumData: AlbumCellData) {
+    func configure(with albumData: AlbumCellData) {
         albumNameLabel.text = albumData.albumName
         artistLabel.text = albumData.artist
     }
