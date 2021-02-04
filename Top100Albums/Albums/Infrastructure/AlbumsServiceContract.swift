@@ -9,7 +9,7 @@ protocol AlbumsServiceContract {
 }
 
 class URLSessionClient {
-    func execute(endpoint: Endpoint, completion: @escaping (Result<Data, Error>) -> Void) {
+    func call(endpoint: Endpoint, completion: @escaping (Result<Data, Error>) -> Void) {
         guard let url = endpoint.url else {
             completion(.failure(NetworkError.urlError))
             return
@@ -35,7 +35,7 @@ struct AlbumsService: AlbumsServiceContract {
     }
 
     func getAlbums(completion: @escaping (Result<[Album], Error>) -> Void) {
-        client.execute(endpoint: GetAlbumsEndpoint()) { result in
+        client.call(endpoint: GetAlbumsEndpoint()) { result in
             switch result {
             case .success(let data):
                 guard let albums = albumsResponseMapper.getAlbums(response: data) else {

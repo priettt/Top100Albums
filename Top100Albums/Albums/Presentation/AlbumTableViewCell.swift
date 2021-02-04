@@ -6,12 +6,21 @@ import UIKit
 
 class AlbumTableViewCell: UITableViewCell {
 
+    private var viewModel: AlbumCellViewModel
+
     private let albumNameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "HelveticaNeue", size: 18)
         label.numberOfLines = 2
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
+    }()
+
+    let imageActivityIndicator : UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView(style: .large)
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        indicator.color = .purple
+        return indicator
     }()
 
     private let artistLabel: UILabel = {
@@ -23,7 +32,7 @@ class AlbumTableViewCell: UITableViewCell {
         return label
     }()
 
-    private let albumThumbnail: UIImageView = {
+    private let albumImage: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.layer.cornerRadius = 5
@@ -43,15 +52,26 @@ class AlbumTableViewCell: UITableViewCell {
     }()
 
     override init(style: CellStyle, reuseIdentifier: String?) {
+        viewModel = AlbumCellViewModel(getAlbumImageAction: GetAlbumImageAction(albumImageService: AlbumImageService(client: URLSessionClient()), albumImageStorage: AlbumImageCache()))
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        viewModel.delegate = self
         setupView()
     }
 
     private func setupView() {
         backgroundColor = UIColor.clear
         accessoryType = .disclosureIndicator
-        setupAlbumThumbnail()
+        setupAlbumImage()
+        setupImageActivityIndicator()
         setupAlbumLabels()
+    }
+
+    private func setupImageActivityIndicator() {
+        contentView.addSubview(imageActivityIndicator)
+        NSLayoutConstraint.activate([
+            imageActivityIndicator.centerYAnchor.constraint(equalTo: albumImage.centerYAnchor),
+            imageActivityIndicator.centerXAnchor.constraint(equalTo: albumImage.centerXAnchor),
+        ])
     }
 
     private func setupAlbumLabels() {
@@ -59,32 +79,45 @@ class AlbumTableViewCell: UITableViewCell {
         albumInformationStackView.addArrangedSubview(artistLabel)
         contentView.addSubview(albumInformationStackView)
         NSLayoutConstraint.activate([
-            albumThumbnail.heightAnchor.constraint(equalToConstant: 100),
-            albumInformationStackView.leadingAnchor.constraint(equalTo: albumThumbnail.trailingAnchor, constant: 8),
+            albumImage.heightAnchor.constraint(equalToConstant: 70),
+            albumInformationStackView.leadingAnchor.constraint(equalTo: albumImage.trailingAnchor, constant: 8),
             albumInformationStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
             albumInformationStackView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
         ])
     }
 
-    private func setupAlbumThumbnail() {
-        contentView.addSubview(albumThumbnail)
-        let bottomConstraint = albumThumbnail.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5)
-        bottomConstraint.priority = UILayoutPriority(rawValue: 999)     // Avoid constraints warnings
+    private func setupAlbumImage() {
+        contentView.addSubview(albumImage)
+        let bottomConstraint = albumImage.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5)
         NSLayoutConstraint.activate([
-            albumThumbnail.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            albumThumbnail.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
+            albumImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            albumImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
             bottomConstraint,
-            albumThumbnail.widthAnchor.constraint(equalToConstant: 100),
+            albumImage.widthAnchor.constraint(equalToConstant: 100),
         ])
     }
 
     func configure(with albumData: AlbumCellData) {
         albumNameLabel.text = albumData.albumName
         artistLabel.text = albumData.artist
+        imageActivityIndicator.startAnimating()
+        viewModel.loadImage(imageUrl: albumData.albumImageUrl)
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+extension AlbumTableViewCell: AlbumCellViewModelDelegate {
+    func onImageLoadSuccess(image: UIImage) {
+        imageActivityIndicator.stopAnimating()
+        albumImage.image = image
+    }
+
+    func onImageLoadError() {
+        imageActivityIndicator.stopAnimating()
+        albumImage.image = UIImage(systemName: "music.note.house")
     }
 }
 

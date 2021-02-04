@@ -8,7 +8,7 @@ struct Album {
     let id: String
     let artistName: String
     let albumName: String
-    let thumbnailUrl: URL
+    let albumImageUrl: URL
     let genres: [String]
     let releaseDate: String
     let copyright: String

@@ -25,7 +25,7 @@ class AlbumsResponseMapper {
         return Album(id: response.id,
                 artistName: response.artistName,
                 albumName: response.name,
-                thumbnailUrl: response.artworkUrl100,
+                albumImageUrl: response.artworkUrl100,
                 genres: response.genres.map { $0.name },
                 releaseDate: response.releaseDate,
                 copyright: response.copyright,

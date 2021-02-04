@@ -10,7 +10,7 @@ class AlbumMapper {
         return AlbumCellData(id: album.id,
                 albumName: album.albumName,
                 artist: album.artistName,
-                thumbnailUrl: album.thumbnailUrl)
+                albumImageUrl: album.albumImageUrl)
     }
 
 }
