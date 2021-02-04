@@ -13,6 +13,7 @@ class AlbumsViewController: UIViewController {
         let tableView = UITableView()
         tableView.backgroundColor = .clear
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.separatorStyle = .none
         return tableView
     }()
 
@@ -27,6 +28,7 @@ class AlbumsViewController: UIViewController {
     let activityIndicator : UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView(style: .large)
         indicator.translatesAutoresizingMaskIntoConstraints = false
+        indicator.color = .purple
         return indicator
     }()
 
@@ -117,5 +119,6 @@ extension AlbumsViewController: AlbumsViewModelDelegate {
     }
 
     func showError() {
+
     }
 }

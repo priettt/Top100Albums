@@ -7,12 +7,15 @@ import Foundation
 class GetAlbumAction {
 
     let albumsStorage: AlbumsStorage
+    let mapper: AlbumMapper
 
-    init(albumsStorage: AlbumsStorage) {
+    init(albumsStorage: AlbumsStorage, mapper: AlbumMapper) {
         self.albumsStorage = albumsStorage
+        self.mapper = mapper
     }
 
     func getAlbum(at index: Int) -> AlbumCellData {
-        return albumsStorage.getAlbum(at: index)
+        let album = albumsStorage.getAlbum(at: index)
+        return mapper.getAlbumCellData(album: album)
     }
 }

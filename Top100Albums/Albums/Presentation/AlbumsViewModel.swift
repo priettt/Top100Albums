@@ -12,31 +12,31 @@ class AlbumsViewModel {
 
     weak var delegate: AlbumsViewModelDelegate?
 
-    init(getAlbumAction: GetAlbumAction, getAlbumsCountAction: GetAlbumsCountAction, fetchAlbums: FetchAlbumsAction) {
+    init(getAlbumAction: GetAlbumAction, getAlbumsCountAction: GetAlbumsCountAction, fetchAlbumsAction: FetchAlbumsAction) {
         self.getAlbumAction = getAlbumAction
         self.getAlbumsCountAction = getAlbumsCountAction
-        self.fetchAlbumsAction = fetchAlbums
+        self.fetchAlbumsAction = fetchAlbumsAction
     }
 
     func onViewDidLoad() {
         fetchAlbumsAction.fetch { [weak self] success in
-            if success {
-                print("Finished fetching")
-                self?.delegate?.hideLoader()
-                self?.delegate?.updateTableView()
-            } else {
-                self?.delegate?.showError()
+            DispatchQueue.main.async {
+                if success {
+                    self?.delegate?.hideLoader()
+                    self?.delegate?.updateTableView()
+                } else {
+                    self?.delegate?.showError()
+                    self?.delegate?.hideLoader()
+                }
             }
         }
     }
 
     func getAlbumsCount() -> Int {
-        print("Albums count")
         return getAlbumsCountAction.getAlbumsCount()
     }
 
     func getAlbumData(for index: Int) -> AlbumCellData {
-        print("Albums data")
         return getAlbumAction.getAlbum(at: index)
     }
 }

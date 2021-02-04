@@ -5,7 +5,7 @@
 import Foundation
 
 struct UIAlbumData {
-    let id: UInt64
+    let id: String
     let name: String
     let imageUrl: String
 }

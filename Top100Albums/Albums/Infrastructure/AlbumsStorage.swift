@@ -6,14 +6,14 @@ import Foundation
 
 protocol AlbumsStorage {
     func getAlbumsCount() -> Int
-    func getAlbum(at index: Int) -> AlbumCellData
-    func saveAlbums(albums: [AlbumCellData])
+    func getAlbum(at index: Int) -> Album
+    func saveAlbums(albums: [Album])
 }
 
 class InMemoryAlbums: AlbumsStorage {
-    var albums = [AlbumCellData]()
+    var albums = [Album]()
 
-    func saveAlbums(albums: [AlbumCellData]) {
+    func saveAlbums(albums: [Album]) {
         self.albums.append(contentsOf: albums)
     }
 
@@ -21,7 +21,7 @@ class InMemoryAlbums: AlbumsStorage {
         return albums.count
     }
 
-    func getAlbum(at index: Int) -> AlbumCellData {
+    func getAlbum(at index: Int) -> Album {
         return albums[index]
     }
 

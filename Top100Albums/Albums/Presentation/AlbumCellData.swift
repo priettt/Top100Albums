@@ -8,5 +8,5 @@ struct AlbumCellData {
     let id: String
     let albumName: String
     let artist: String
-    let thumbnailUrl: String
+    let thumbnailUrl: URL
 }

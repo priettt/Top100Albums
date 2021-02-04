@@ -7,15 +7,22 @@ import Foundation
 class FetchAlbumsAction {
 
     let albumsStorage: AlbumsStorage
+    let albumsService: AlbumsServiceContract
 
-    init(albumsStorage: AlbumsStorage) {
+    init(albumsStorage: AlbumsStorage, albumsService: AlbumsServiceContract) {
         self.albumsStorage = albumsStorage
+        self.albumsService = albumsService
     }
 
     func fetch(completion: @escaping (Bool) -> Void) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(5)) {
-            self.albumsStorage.saveAlbums(albums: [AlbumCellData(id: "1", albumName: "Reputation Stadium Tour", artist: "Taylor Swift", thumbnailUrl: "url")])
-            completion(true)
+        albumsService.getAlbums { result in
+            switch result {
+            case .success(let albums):
+                self.albumsStorage.saveAlbums(albums: albums)
+                completion(true)
+            case .failure(_):
+                completion(false)
+            }
         }
     }
 }
