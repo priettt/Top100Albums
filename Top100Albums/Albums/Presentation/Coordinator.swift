@@ -19,13 +19,13 @@ class Coordinator {
         let getAlbumAction = GetAlbumAction(albumsStorage: albumStorage)
         let viewModel = AlbumsViewModel(coordinator: self, getAlbumAction: getAlbumAction, getAlbumsCountAction: getAlbumsCountAction, fetchAlbumsAction: fetchAlbumsAction, mapper: AlbumMapper())
         let viewController = AlbumsViewController(viewModel: viewModel)
-        navigationController.pushViewController(viewController, animated: false)
+        navigationController.pushViewController(viewController, animated: true)
     }
 
     func goToDetail(selectedAlbum: Album) {
         let viewModel = AlbumDetailViewModel(album: selectedAlbum, getAlbumImageAction: GetAlbumImageAction(albumImageService: AlbumImageService(client: URLSessionClient()), albumImageStorage: AlbumImageCache.shared), coordinator: self, albumDetailMapper: AlbumDetailMapper())
         let viewController = AlbumDetailViewController(viewModel: viewModel)
-        navigationController.pushViewController(viewController, animated: false)
+        navigationController.pushViewController(viewController, animated: true)
     }
 
 }

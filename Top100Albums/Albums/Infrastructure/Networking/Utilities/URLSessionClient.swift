@@ -4,7 +4,7 @@
 
 import Foundation
 
-class URLSessionClient {
+struct URLSessionClient {
     func call(endpoint: Endpoint, completion: @escaping (Result<Data, Error>) -> Void) {
         guard let url = endpoint.url else {
             completion(.failure(NetworkError.urlError))

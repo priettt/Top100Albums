@@ -100,7 +100,6 @@ class AlbumDetailViewController: UIViewController {
         NSLayoutConstraint.activate([
             albumImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             albumImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-
         ])
     }
 
