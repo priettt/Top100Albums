@@ -6,14 +6,14 @@ import Foundation
 
 class AlbumsViewModel {
 
-    private let getAlbumAction: GetAlbumAction
+    private let getAlbumCellDataAction: GetAlbumCellDataAction
     private let getAlbumsCountAction: GetAlbumsCountAction
     private let fetchAlbumsAction: FetchAlbumsAction
 
     weak var delegate: AlbumsViewModelDelegate?
 
-    init(getAlbumAction: GetAlbumAction, getAlbumsCountAction: GetAlbumsCountAction, fetchAlbumsAction: FetchAlbumsAction) {
-        self.getAlbumAction = getAlbumAction
+    init(getAlbumCellDataAction: GetAlbumCellDataAction, getAlbumsCountAction: GetAlbumsCountAction, fetchAlbumsAction: FetchAlbumsAction) {
+        self.getAlbumCellDataAction = getAlbumCellDataAction
         self.getAlbumsCountAction = getAlbumsCountAction
         self.fetchAlbumsAction = fetchAlbumsAction
     }
@@ -25,8 +25,8 @@ class AlbumsViewModel {
                     self?.delegate?.hideLoader()
                     self?.delegate?.updateTableView()
                 } else {
-                    self?.delegate?.showError()
                     self?.delegate?.hideLoader()
+                    self?.delegate?.showError()
                 }
             }
         }
@@ -37,7 +37,7 @@ class AlbumsViewModel {
     }
 
     func getAlbumData(for index: Int) -> AlbumCellData {
-        return getAlbumAction.getAlbum(at: index)
+        return getAlbumCellDataAction.getAlbumCellData(at: index)
     }
 }
 

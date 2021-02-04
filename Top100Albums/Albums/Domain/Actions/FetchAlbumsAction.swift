@@ -15,7 +15,11 @@ class FetchAlbumsAction {
     }
 
     func fetch(completion: @escaping (Bool) -> Void) {
-        albumsService.getAlbums { result in
+        albumsService.getAlbums { [weak self] result in
+            guard let self = self else {
+                completion(false)
+                return
+            }
             switch result {
             case .success(let albums):
                 self.albumsStorage.saveAlbums(albums: albums)

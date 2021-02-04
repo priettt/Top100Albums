@@ -14,8 +14,8 @@ class GetAlbumImageAction {
     }
 
     func getAlbumImage(imageUrl: URL, completion: @escaping (Result<UIImage, Error>) -> Void) {
-        if let image = albumImageStorage.getAlbumImage(with: imageUrl.absoluteString) {
-            completion(.success(image))
+        if let storageImage = albumImageStorage.getAlbumImage(with: imageUrl.absoluteString) {
+            completion(.success(storageImage))
         } else {
             albumImageService.getAlbumImage(url: imageUrl) { [weak self] result in
                 guard let self = self else {
@@ -33,9 +33,4 @@ class GetAlbumImageAction {
             }
         }
     }
-}
-
-enum GetImageError: Swift.Error {
-    case selfInstanceError
-    case imageCreationError
 }

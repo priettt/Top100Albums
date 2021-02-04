@@ -8,23 +8,6 @@ protocol AlbumsServiceContract {
     func getAlbums(completion: @escaping (Result<[Album], Error>) -> Void)
 }
 
-class URLSessionClient {
-    func call(endpoint: Endpoint, completion: @escaping (Result<Data, Error>) -> Void) {
-        guard let url = endpoint.url else {
-            completion(.failure(NetworkError.urlError))
-            return
-        }
-
-        URLSession.shared.dataTask(with: url) { (data, _, _) in
-            if let data = data {
-                completion(.success(data))
-            } else {
-                completion(.failure(NetworkError.dataResponseError))
-            }
-        }.resume()
-    }
-}
-
 struct AlbumsService: AlbumsServiceContract {
     private let client: URLSessionClient
     private let albumsResponseMapper: AlbumsResponseMapper
@@ -49,22 +32,4 @@ struct AlbumsService: AlbumsServiceContract {
         }
     }
 
-}
-
-struct GetAlbumsEndpoint: Endpoint {
-
-    static let REQUEST_URL = "https://rss.itunes.apple.com/api/v1/us/apple-music/top-albums/all/100/explicit.json"
-
-    var url = URL(string: REQUEST_URL)
-
-}
-
-protocol Endpoint {
-    var url: URL? { get }
-}
-
-enum NetworkError: Swift.Error {
-    case urlError
-    case dataMappingError
-    case dataResponseError
 }

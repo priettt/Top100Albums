@@ -4,7 +4,7 @@
 
 import Foundation
 
-class GetAlbumAction {
+class GetAlbumCellDataAction {
 
     let albumsStorage: AlbumsStorage
     let mapper: AlbumMapper
@@ -14,7 +14,7 @@ class GetAlbumAction {
         self.mapper = mapper
     }
 
-    func getAlbum(at index: Int) -> AlbumCellData {
+    func getAlbumCellData(at index: Int) -> AlbumCellData {
         let album = albumsStorage.getAlbum(at: index)
         return mapper.getAlbumCellData(album: album)
     }

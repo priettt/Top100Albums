@@ -30,7 +30,3 @@ class AlbumImageService: AlbumImageServiceContract {
         }
     }
 }
-
-struct GetAlbumImageEndpoint: Endpoint {
-    var url: URL?
-}

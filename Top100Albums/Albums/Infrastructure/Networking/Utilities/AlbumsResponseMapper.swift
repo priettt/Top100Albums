@@ -7,7 +7,7 @@ import Foundation
 class AlbumsResponseMapper {
     func getAlbums(response: Data) -> [Album]? {
         let jsonDecoder = JSONDecoder()
-        let feed = try! jsonDecoder.decode(GetAlbumResponseData.self, from: response)
+        let feed = try? jsonDecoder.decode(GetAlbumResponseData.self, from: response)
         return getAlbums(from: feed)
     }
 

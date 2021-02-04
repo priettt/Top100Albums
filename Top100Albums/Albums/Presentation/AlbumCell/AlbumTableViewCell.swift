@@ -16,7 +16,7 @@ class AlbumTableViewCell: UITableViewCell {
         return label
     }()
 
-    let imageActivityIndicator : UIActivityIndicatorView = {
+    let imageActivityIndicator: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView(style: .large)
         indicator.translatesAutoresizingMaskIntoConstraints = false
         indicator.color = .purple
@@ -79,8 +79,8 @@ class AlbumTableViewCell: UITableViewCell {
         albumInformationStackView.addArrangedSubview(artistLabel)
         contentView.addSubview(albumInformationStackView)
         NSLayoutConstraint.activate([
-            albumImage.heightAnchor.constraint(equalToConstant: 70),
-            albumInformationStackView.leadingAnchor.constraint(equalTo: albumImage.trailingAnchor, constant: 8),
+            albumImage.heightAnchor.constraint(equalToConstant: 65),
+            albumInformationStackView.leadingAnchor.constraint(equalTo: albumImage.trailingAnchor),
             albumInformationStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
             albumInformationStackView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
         ])

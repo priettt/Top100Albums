@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         let albumStorage = InMemoryAlbums()
-        window?.rootViewController = AlbumsViewController(viewModel: AlbumsViewModel(getAlbumAction: GetAlbumAction(albumsStorage: albumStorage, mapper: AlbumMapper()),
+        window?.rootViewController = AlbumsViewController(viewModel: AlbumsViewModel(getAlbumCellDataAction: GetAlbumCellDataAction(albumsStorage: albumStorage, mapper: AlbumMapper()),
                 getAlbumsCountAction: GetAlbumsCountAction(albumsStorage: albumStorage), fetchAlbumsAction: FetchAlbumsAction(albumsStorage: albumStorage, albumsService: AlbumsService(client: URLSessionClient(), albumsResponseMapper: AlbumsResponseMapper()))))
         window?.makeKeyAndVisible()
     }
