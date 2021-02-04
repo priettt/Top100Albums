@@ -17,14 +17,6 @@ class AlbumsViewController: UIViewController {
         return tableView
     }()
 
-    let titleLabel : UILabel = {
-        let label = UILabel()
-        label.text = "Top 100 Albums"
-        label.font = UIFont(name: "HelveticaNeue-Thin", size: 32)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-
     let activityIndicator : UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView(style: .large)
         indicator.translatesAutoresizingMaskIntoConstraints = false
@@ -62,11 +54,7 @@ class AlbumsViewController: UIViewController {
     }
 
     private func setupTitle() {
-        view.addSubview(titleLabel)
-        NSLayoutConstraint.activate([
-            titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20)
-        ])
+        self.title = "Top 100 Albums"
     }
 
     private func setupAlbums() {
@@ -75,7 +63,7 @@ class AlbumsViewController: UIViewController {
         tableView.delegate = self
         view.addSubview(tableView)
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
@@ -103,13 +91,15 @@ extension AlbumsViewController: UITableViewDataSource {
 
 extension AlbumsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+        viewModel.onDidSelectRow(at: indexPath.row)
     }
 }
 
 extension AlbumsViewController: AlbumsViewModelDelegate {
     func hideLoader() {
-        activityIndicator.stopAnimating()
+        DispatchQueue.main.async {
+            self.activityIndicator.stopAnimating()
+        }
     }
 
     func updateTableView() {
@@ -119,6 +109,8 @@ extension AlbumsViewController: AlbumsViewModelDelegate {
     }
 
     func showError() {
+        DispatchQueue.main.async {
 
+        }
     }
 }

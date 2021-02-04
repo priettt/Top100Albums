@@ -16,26 +16,17 @@ class AlbumTableViewCell: UITableViewCell {
         return label
     }()
 
-    let imageActivityIndicator: UIActivityIndicatorView = {
-        let indicator = UIActivityIndicatorView(style: .large)
-        indicator.translatesAutoresizingMaskIntoConstraints = false
-        indicator.color = .purple
-        return indicator
-    }()
-
     private let artistLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont(name: "HelveticaNeue-Thin", size: 18)
+        label.font = UIFont(name: "HelveticaNeue-Thin", size: 16)
         label.numberOfLines = 2
-        label.adjustsFontSizeToFitWidth = true
         return label
     }()
 
     private let albumImage: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
-        imageView.layer.cornerRadius = 5
         imageView.layer.masksToBounds = true
         imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -62,16 +53,7 @@ class AlbumTableViewCell: UITableViewCell {
         backgroundColor = UIColor.clear
         accessoryType = .disclosureIndicator
         setupAlbumImage()
-        setupImageActivityIndicator()
         setupAlbumLabels()
-    }
-
-    private func setupImageActivityIndicator() {
-        contentView.addSubview(imageActivityIndicator)
-        NSLayoutConstraint.activate([
-            imageActivityIndicator.centerYAnchor.constraint(equalTo: albumImage.centerYAnchor),
-            imageActivityIndicator.centerXAnchor.constraint(equalTo: albumImage.centerXAnchor),
-        ])
     }
 
     private func setupAlbumLabels() {
@@ -79,8 +61,8 @@ class AlbumTableViewCell: UITableViewCell {
         albumInformationStackView.addArrangedSubview(artistLabel)
         contentView.addSubview(albumInformationStackView)
         NSLayoutConstraint.activate([
-            albumImage.heightAnchor.constraint(equalToConstant: 65),
-            albumInformationStackView.leadingAnchor.constraint(equalTo: albumImage.trailingAnchor),
+            albumImage.heightAnchor.constraint(equalToConstant: 90),
+            albumInformationStackView.leadingAnchor.constraint(equalTo: albumImage.trailingAnchor, constant: 10),
             albumInformationStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
             albumInformationStackView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
         ])
@@ -88,11 +70,10 @@ class AlbumTableViewCell: UITableViewCell {
 
     private func setupAlbumImage() {
         contentView.addSubview(albumImage)
-        let bottomConstraint = albumImage.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5)
         NSLayoutConstraint.activate([
-            albumImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            albumImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
             albumImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
-            bottomConstraint,
+            albumImage.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5),
             albumImage.widthAnchor.constraint(equalToConstant: 100),
         ])
     }
@@ -100,7 +81,6 @@ class AlbumTableViewCell: UITableViewCell {
     func configure(with albumData: AlbumCellData) {
         albumNameLabel.text = albumData.albumName
         artistLabel.text = albumData.artist
-        imageActivityIndicator.startAnimating()
         viewModel.loadImage(imageUrl: albumData.albumImageUrl)
     }
 
@@ -111,13 +91,15 @@ class AlbumTableViewCell: UITableViewCell {
 
 extension AlbumTableViewCell: AlbumCellViewModelDelegate {
     func onImageLoadSuccess(image: UIImage) {
-        imageActivityIndicator.stopAnimating()
-        albumImage.image = image
+        DispatchQueue.main.async {
+            self.albumImage.image = image
+        }
     }
 
     func onImageLoadError() {
-        imageActivityIndicator.stopAnimating()
-        albumImage.image = UIImage(systemName: "music.note.house")
+        DispatchQueue.main.async {
+            self.albumImage.image = UIImage(systemName: "music.note.house")
+        }
     }
 }
 

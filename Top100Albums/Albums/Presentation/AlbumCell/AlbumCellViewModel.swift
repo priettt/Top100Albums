@@ -17,13 +17,11 @@ class AlbumCellViewModel {
             guard let self = self else {
                 return
             }
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let image):
-                    self.delegate?.onImageLoadSuccess(image: image)
-                case .failure(_):
-                    self.delegate?.onImageLoadError()
-                }
+            switch result {
+            case .success(let image):
+                self.delegate?.onImageLoadSuccess(image: image)
+            case .failure(_):
+                self.delegate?.onImageLoadError()
             }
         }
     }

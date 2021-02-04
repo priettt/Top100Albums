@@ -6,28 +6,30 @@ import Foundation
 
 class AlbumsViewModel {
 
-    private let getAlbumCellDataAction: GetAlbumCellDataAction
+    private let getAlbumAction: GetAlbumAction
     private let getAlbumsCountAction: GetAlbumsCountAction
     private let fetchAlbumsAction: FetchAlbumsAction
+    private let mapper: AlbumMapper
 
     weak var delegate: AlbumsViewModelDelegate?
+    weak var coordinator: Coordinator?
 
-    init(getAlbumCellDataAction: GetAlbumCellDataAction, getAlbumsCountAction: GetAlbumsCountAction, fetchAlbumsAction: FetchAlbumsAction) {
-        self.getAlbumCellDataAction = getAlbumCellDataAction
+    init(coordinator: Coordinator, getAlbumAction: GetAlbumAction, getAlbumsCountAction: GetAlbumsCountAction, fetchAlbumsAction: FetchAlbumsAction, mapper: AlbumMapper) {
+        self.getAlbumAction = getAlbumAction
         self.getAlbumsCountAction = getAlbumsCountAction
         self.fetchAlbumsAction = fetchAlbumsAction
+        self.coordinator = coordinator
+        self.mapper = mapper
     }
 
     func onViewDidLoad() {
         fetchAlbumsAction.fetch { [weak self] success in
-            DispatchQueue.main.async {
-                if success {
-                    self?.delegate?.hideLoader()
-                    self?.delegate?.updateTableView()
-                } else {
-                    self?.delegate?.hideLoader()
-                    self?.delegate?.showError()
-                }
+            if success {
+                self?.delegate?.hideLoader()
+                self?.delegate?.updateTableView()
+            } else {
+                self?.delegate?.hideLoader()
+                self?.delegate?.showError()
             }
         }
     }
@@ -37,7 +39,11 @@ class AlbumsViewModel {
     }
 
     func getAlbumData(for index: Int) -> AlbumCellData {
-        return getAlbumCellDataAction.getAlbumCellData(at: index)
+        return mapper.getAlbumCellData(album: getAlbumAction.getAlbum(at: index))
+    }
+
+    func onDidSelectRow(at index: Int) {
+        coordinator?.goToDetail(selectedAlbum: getAlbumAction.getAlbum(at: index))
     }
 }
 
