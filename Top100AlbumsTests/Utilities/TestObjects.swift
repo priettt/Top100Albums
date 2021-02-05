@@ -16,6 +16,16 @@ struct TestObjects {
             albumUrl: URL.init(fileURLWithPath: "test")
     )
 
+    static let anotherTestAlbum = Album(id: "anotherTestId",
+            artistName: "anotherTestArtistName",
+            albumName: "anotherTestAlbumName",
+            albumImageUrl: URL(fileURLWithPath: "anotherTest"),
+            genres: ["genre3", "genre4"],
+            releaseDate: "anotherReleaseDate",
+            copyright: "anotherCopyright",
+            albumUrl: URL.init(fileURLWithPath: "anotherTest")
+    )
+
     static let testAlbumDetailData = AlbumDetailData(id: "testId",
             artistName: "testArtistName",
             albumName: "testAlbumName",

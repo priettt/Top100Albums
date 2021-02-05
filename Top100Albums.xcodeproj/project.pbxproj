@@ -20,6 +20,7 @@
 		65B681D8A0E8E2E2F206E537 /* AlbumsResponseMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B68A5706062AB5879EFDBE /* AlbumsResponseMapper.swift */; };
 		65B681FED203DECC79364C1C /* GetAlbumImageActionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B68E9BCD43DCF7BC3816AD /* GetAlbumImageActionMock.swift */; };
 		65B68286C66D3F9639895D38 /* AlbumsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B68AC8F393B6622E4DCE04 /* AlbumsViewModel.swift */; };
+		65B6832DADEE816E22DDB2D6 /* AlbumsStorageMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B68F422FC5223C7A9C0B48 /* AlbumsStorageMock.swift */; };
 		65B683A97CAA7E6CCA316E19 /* AlbumCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B686F684E2342D388D242C /* AlbumCellViewModel.swift */; };
 		65B68406905D2822F552FB30 /* AlbumDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B68FD490DA1D1B15D9963F /* AlbumDetailViewModel.swift */; };
 		65B6843C23732150C0E1F56B /* AlbumDetailMapperMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B687807B4A5EAA7A9BCDC9 /* AlbumDetailMapperMock.swift */; };
@@ -37,6 +38,7 @@
 		65B6884092DAB186E02F67C6 /* AlbumsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B6848DD797195DA3772609 /* AlbumsViewController.swift */; };
 		65B688A5482D35730750CA55 /* AlbumImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B6892A5D4156A9BDDCC650 /* AlbumImageService.swift */; };
 		65B688C6D582286369B0350F /* AlbumDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B6804FA3ACB73996D4C874 /* AlbumDetailViewController.swift */; };
+		65B6891E11C0C10BE18C616D /* InMemoryAlbumsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B689525BDC19CDA2D0588E /* InMemoryAlbumsTest.swift */; };
 		65B6891E3A20E109F38568C7 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B6842F0CAC165BD2C4E65C /* Coordinator.swift */; };
 		65B6896BDD6DD5EDD75764C3 /* AlbumsViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B6852604C9204E63F2C5E6 /* AlbumsViewModelTest.swift */; };
 		65B6898AF493AFF290F44B12 /* GetImageError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B68B4D5734334EF1DA801B /* GetImageError.swift */; };
@@ -47,6 +49,7 @@
 		65B68BA7C85F7EDFCA7313C7 /* AlbumMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B6803B7516B84563152D65 /* AlbumMapper.swift */; };
 		65B68BB297B152CC1D394CC8 /* GetAlbumActionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B689ED8537D9B9C552F3FB /* GetAlbumActionMock.swift */; };
 		65B68BB72FFC07060BF35865 /* TestObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B68C0538B233521B7E7677 /* TestObjects.swift */; };
+		65B68BEB344F659ED7C4978B /* AlbumsServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B686A1362D6A9580E79CD3 /* AlbumsServiceMock.swift */; };
 		65B68C6575FC848221444C5F /* AlbumImageStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B6849F7EC67CB13048CA16 /* AlbumImageStorage.swift */; };
 		65B68C70DD21321C20B18D8A /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B689DB31B154A395ACE16D /* Endpoint.swift */; };
 		65B68C9EE95CD39D26F65983 /* AlbumDetailMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B687407AA6A9C33B4B9779 /* AlbumDetailMapper.swift */; };
@@ -54,6 +57,7 @@
 		65B68D28746F015DFE637BC6 /* FetchAlbumsActionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B68C6B26CB7BAF29BBE25C /* FetchAlbumsActionMock.swift */; };
 		65B68DDA0DE34C798531FFC9 /* AlbumsServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B68CC0C4FE28AABB907AF3 /* AlbumsServiceTest.swift */; };
 		65B68E00B67F35C676D0DFC0 /* AlbumDetailViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B68C6508502C85EAC273EE /* AlbumDetailViewModelTest.swift */; };
+		65B68EAEBAC1B978364DD26C /* FetchAlbumsActionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B68F5383AEE5EEC8991610 /* FetchAlbumsActionTest.swift */; };
 		65B68EE77B60F69267D901A6 /* AlbumCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B684783CAE785C5A4CC274 /* AlbumCellData.swift */; };
 		65B68EF522B2B67D45857C09 /* AlbumTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B686B97081497D2B695633 /* AlbumTableViewCell.swift */; };
 		65B68F8A12A613044A0A67A3 /* URLSessionClientMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B68ED40B8B9A96F6FD806A /* URLSessionClientMock.swift */; };
@@ -106,6 +110,7 @@
 		65B6849F7EC67CB13048CA16 /* AlbumImageStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumImageStorage.swift; sourceTree = "<group>"; };
 		65B6852604C9204E63F2C5E6 /* AlbumsViewModelTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumsViewModelTest.swift; sourceTree = "<group>"; };
 		65B685AD184E84CC0B50B48B /* AlbumsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumsService.swift; sourceTree = "<group>"; };
+		65B686A1362D6A9580E79CD3 /* AlbumsServiceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumsServiceMock.swift; sourceTree = "<group>"; };
 		65B686A9796DAF4DCCE58ED1 /* AlbumDetailData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumDetailData.swift; sourceTree = "<group>"; };
 		65B686B97081497D2B695633 /* AlbumTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumTableViewCell.swift; sourceTree = "<group>"; };
 		65B686F684E2342D388D242C /* AlbumCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumCellViewModel.swift; sourceTree = "<group>"; };
@@ -113,6 +118,7 @@
 		65B687807B4A5EAA7A9BCDC9 /* AlbumDetailMapperMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumDetailMapperMock.swift; sourceTree = "<group>"; };
 		65B688C96F3730EB14F41F61 /* UIAlbumData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIAlbumData.swift; sourceTree = "<group>"; };
 		65B6892A5D4156A9BDDCC650 /* AlbumImageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumImageService.swift; sourceTree = "<group>"; };
+		65B689525BDC19CDA2D0588E /* InMemoryAlbumsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InMemoryAlbumsTest.swift; sourceTree = "<group>"; };
 		65B689B628FF2C55F7AB7D46 /* GetAlbumAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetAlbumAction.swift; sourceTree = "<group>"; };
 		65B689DB31B154A395ACE16D /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		65B689ED8537D9B9C552F3FB /* GetAlbumActionMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetAlbumActionMock.swift; sourceTree = "<group>"; };
@@ -131,6 +137,8 @@
 		65B68E67AD829FB279667489 /* GetAlbumsCountAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetAlbumsCountAction.swift; sourceTree = "<group>"; };
 		65B68E9BCD43DCF7BC3816AD /* GetAlbumImageActionMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetAlbumImageActionMock.swift; sourceTree = "<group>"; };
 		65B68ED40B8B9A96F6FD806A /* URLSessionClientMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionClientMock.swift; sourceTree = "<group>"; };
+		65B68F422FC5223C7A9C0B48 /* AlbumsStorageMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumsStorageMock.swift; sourceTree = "<group>"; };
+		65B68F5383AEE5EEC8991610 /* FetchAlbumsActionTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchAlbumsActionTest.swift; sourceTree = "<group>"; };
 		65B68F6FFA4E9DF5B1510B72 /* NetworkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		65B68F8B1076363D9DC60E76 /* AlbumsStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumsStorage.swift; sourceTree = "<group>"; };
 		65B68FB28BE24024D4D094E5 /* FetchAlbumsAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchAlbumsAction.swift; sourceTree = "<group>"; };
@@ -301,6 +309,13 @@
 			path = AlbumDetail;
 			sourceTree = "<group>";
 		};
+		65B683264FA58CC178963274 /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Actions;
+			sourceTree = "<group>";
+		};
 		65B684389E4769E936AA1471 /* Albums */ = {
 			isa = PBXGroup;
 			children = (
@@ -361,6 +376,8 @@
 				65B68ED40B8B9A96F6FD806A /* URLSessionClientMock.swift */,
 				65B6820C5FCAF13AC09843EB /* AlbumResponseMapperMock.swift */,
 				65B68AFC35DE00A702C95F05 /* ImageDataMapperMock.swift */,
+				65B686A1362D6A9580E79CD3 /* AlbumsServiceMock.swift */,
+				65B68F422FC5223C7A9C0B48 /* AlbumsStorageMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -386,6 +403,7 @@
 			children = (
 				65B68CC0C4FE28AABB907AF3 /* AlbumsServiceTest.swift */,
 				65B68ADD62A82E5FD3265DCA /* AlbumImageServiceTest.swift */,
+				65B68F5383AEE5EEC8991610 /* FetchAlbumsActionTest.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -393,6 +411,7 @@
 		65B68830FF860EAAB09ABC0E /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				65B683264FA58CC178963274 /* Actions */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -431,6 +450,7 @@
 		65B68C35F6CDF2480538A5AC /* Storage */ = {
 			isa = PBXGroup;
 			children = (
+				65B689525BDC19CDA2D0588E /* InMemoryAlbumsTest.swift */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -665,6 +685,10 @@
 				65B68BB72FFC07060BF35865 /* TestObjects.swift in Sources */,
 				65B686B501CE5EF8EBCA721B /* AlbumImageServiceTest.swift in Sources */,
 				65B68178068A0587B9344156 /* ImageDataMapperMock.swift in Sources */,
+				65B6891E11C0C10BE18C616D /* InMemoryAlbumsTest.swift in Sources */,
+				65B68EAEBAC1B978364DD26C /* FetchAlbumsActionTest.swift in Sources */,
+				65B68BEB344F659ED7C4978B /* AlbumsServiceMock.swift in Sources */,
+				65B6832DADEE816E22DDB2D6 /* AlbumsStorageMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
