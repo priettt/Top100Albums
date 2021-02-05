@@ -6,31 +6,29 @@ import Foundation
 
 class AlbumsViewModel {
 
-    private let getAlbumAction: GetAlbumAction
-    private let getAlbumsCountAction: GetAlbumsCountAction
-    private let fetchAlbumsAction: FetchAlbumsAction
-    private let mapper: AlbumMapper
+    private let getAlbumAction: GetAlbumActionContract
+    private let getAlbumsCountAction: GetAlbumsCountActionContract
+    private let fetchAlbumsAction: FetchAlbumsActionContract
+    private let mapper: AlbumMapperContract
 
-    weak var delegate: AlbumsViewModelDelegate?
-    weak var coordinator: Coordinator?
+    weak var viewControllerDelegate: AlbumsViewControllerDelegate?
+    weak var coordinatorDelegate: CoordinatorDelegate?
 
-    init(coordinator: Coordinator, getAlbumAction: GetAlbumAction, getAlbumsCountAction: GetAlbumsCountAction, fetchAlbumsAction: FetchAlbumsAction, mapper: AlbumMapper) {
+    init(getAlbumAction: GetAlbumActionContract, getAlbumsCountAction: GetAlbumsCountActionContract, fetchAlbumsAction: FetchAlbumsActionContract, mapper: AlbumMapperContract) {
         self.getAlbumAction = getAlbumAction
         self.getAlbumsCountAction = getAlbumsCountAction
         self.fetchAlbumsAction = fetchAlbumsAction
-        self.coordinator = coordinator
         self.mapper = mapper
     }
 
     func onViewDidLoad() {
         fetchAlbumsAction.fetch { [weak self] success in
             if success {
-                self?.delegate?.hideLoader()
-                self?.delegate?.updateTableView()
+                self?.viewControllerDelegate?.updateTableView()
             } else {
-                self?.delegate?.hideLoader()
-                self?.delegate?.showError()
+                self?.viewControllerDelegate?.showError()
             }
+            self?.viewControllerDelegate?.hideLoader()
         }
     }
 
@@ -43,12 +41,16 @@ class AlbumsViewModel {
     }
 
     func onDidSelectRow(at index: Int) {
-        coordinator?.goToDetail(selectedAlbum: getAlbumAction.getAlbum(at: index))
+        coordinatorDelegate?.goToDetail(selectedAlbum: getAlbumAction.getAlbum(at: index))
     }
 }
 
-protocol AlbumsViewModelDelegate: class {
+protocol AlbumsViewControllerDelegate: class {
     func hideLoader()
     func updateTableView()
     func showError()
+}
+
+protocol CoordinatorDelegate: class {
+    func goToDetail(selectedAlbum: Album)
 }

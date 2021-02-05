@@ -29,7 +29,7 @@ class AlbumsViewController: UIViewController {
     init(viewModel: AlbumsViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
-        viewModel.delegate = self
+        viewModel.viewControllerDelegate = self
     }
 
     override func viewDidLoad() {
@@ -96,7 +96,7 @@ extension AlbumsViewController: UITableViewDelegate {
     }
 }
 
-extension AlbumsViewController: AlbumsViewModelDelegate {
+extension AlbumsViewController: AlbumsViewControllerDelegate {
     func hideLoader() {
         DispatchQueue.main.async {
             self.activityIndicator.stopAnimating()
@@ -111,7 +111,9 @@ extension AlbumsViewController: AlbumsViewModelDelegate {
 
     func showError() {
         DispatchQueue.main.async {
-
+            let alert = UIAlertController(title: "Error", message: "There was an error loading the albums, please, try again later.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Accept", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
     }
 }

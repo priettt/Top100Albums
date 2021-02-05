@@ -4,7 +4,7 @@
 
 import Foundation
 
-class AlbumMapper {
+class AlbumMapper: AlbumMapperContract {
 
     func getAlbumCellData(album: Album) -> AlbumCellData {
         return AlbumCellData(id: album.id,
@@ -13,4 +13,8 @@ class AlbumMapper {
                 albumImageUrl: album.albumImageUrl)
     }
 
+}
+
+protocol AlbumMapperContract {
+    func getAlbumCellData(album: Album) -> AlbumCellData
 }

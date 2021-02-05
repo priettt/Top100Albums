@@ -5,10 +5,10 @@
 import UIKit
 
 class AlbumCellViewModel {
-    private let getAlbumImageAction: GetAlbumImageAction
+    private let getAlbumImageAction: GetAlbumImageActionContract
     weak var delegate: AlbumCellViewModelDelegate?
 
-    init(getAlbumImageAction: GetAlbumImageAction) {
+    init(getAlbumImageAction: GetAlbumImageActionContract) {
         self.getAlbumImageAction = getAlbumImageAction
     }
 

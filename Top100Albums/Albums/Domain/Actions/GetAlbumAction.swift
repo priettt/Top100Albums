@@ -4,7 +4,7 @@
 
 import Foundation
 
-class GetAlbumAction {
+class GetAlbumAction: GetAlbumActionContract {
 
     let albumsStorage: AlbumsStorage
 
@@ -15,4 +15,8 @@ class GetAlbumAction {
     func getAlbum(at index: Int) -> Album {
         return albumsStorage.getAlbum(at: index)
     }
+}
+
+protocol GetAlbumActionContract {
+    func getAlbum(at index: Int) -> Album
 }

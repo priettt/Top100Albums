@@ -4,7 +4,7 @@
 
 import Foundation
 
-class GetAlbumsCountAction {
+class GetAlbumsCountAction: GetAlbumsCountActionContract {
 
     let albumsStorage: AlbumsStorage
 
@@ -15,4 +15,8 @@ class GetAlbumsCountAction {
     func getAlbumsCount() -> Int {
         return albumsStorage.getAlbumsCount()
     }
+}
+
+protocol GetAlbumsCountActionContract {
+    func getAlbumsCount() -> Int
 }

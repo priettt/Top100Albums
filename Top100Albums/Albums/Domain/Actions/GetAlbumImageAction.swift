@@ -4,7 +4,7 @@
 
 import UIKit
 
-class GetAlbumImageAction {
+class GetAlbumImageAction: GetAlbumImageActionContract {
     let albumImageService: AlbumImageServiceContract
     let albumImageStorage: AlbumImageStorage
 
@@ -33,4 +33,8 @@ class GetAlbumImageAction {
             }
         }
     }
+}
+
+protocol GetAlbumImageActionContract {
+    func getAlbumImage(imageUrl: URL, completion: @escaping (Result<UIImage, Error>) -> Void)
 }

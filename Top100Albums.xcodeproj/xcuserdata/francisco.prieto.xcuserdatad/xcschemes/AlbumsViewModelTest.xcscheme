@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scheme
+   version = "1.3">
+   <BuildAction>
+      <BuildActionEntries>
+         <BuildActionEntry
+            buildForTesting = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "609E9B3425C5B2F800132653"
+               BuildableName = "Top100AlbumsTests.xctest"
+               BlueprintName = "Top100AlbumsTests"
+               ReferencedContainer = "container:Top100Albums.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+      </BuildActionEntries>
+   </BuildAction>
+   <TestAction
+      buildConfiguration = "Debug">
+      <Testables>
+         <TestableReference>
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "609E9B3425C5B2F800132653"
+               BuildableName = "Top100AlbumsTests.xctest"
+               BlueprintName = "Top100AlbumsTests"
+               ReferencedContainer = "container:Top100Albums.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+      </Testables>
+   </TestAction>
+   <LaunchAction
+      useCustomWorkingDirectory = "NO"
+      allowLocationSimulation = "YES">
+   </LaunchAction>
+</Scheme>

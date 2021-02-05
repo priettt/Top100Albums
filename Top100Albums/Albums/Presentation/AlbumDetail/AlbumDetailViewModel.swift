@@ -4,31 +4,17 @@
 
 import UIKit
 
-class AlbumDetailMapper {
-    func getAlbumDetail(album: Album) -> AlbumDetailData {
-        return AlbumDetailData(id: album.id,
-                artistName: album.artistName,
-                albumName: album.albumName,
-                genres: album.genres.joined(separator: ", "),
-                releaseDate: album.releaseDate,
-                copyright: album.copyright,
-                albumUrl: album.albumUrl)
-    }
-}
-
 class AlbumDetailViewModel {
 
-    private let getAlbumImageAction: GetAlbumImageAction
+    private let getAlbumImageAction: GetAlbumImageActionContract
     private let album: Album
-    private let albumDetailMapper: AlbumDetailMapper
+    private let albumDetailMapper: AlbumDetailMapperContract
 
     weak var delegate: AlbumDetailViewModelDelegate?
-    weak var coordinator: Coordinator?
 
-    init(album: Album, getAlbumImageAction: GetAlbumImageAction, coordinator: Coordinator?, albumDetailMapper: AlbumDetailMapper) {
+    init(album: Album, getAlbumImageAction: GetAlbumImageActionContract, albumDetailMapper: AlbumDetailMapperContract) {
         self.album = album
         self.getAlbumImageAction = getAlbumImageAction
-        self.coordinator = coordinator
         self.albumDetailMapper = albumDetailMapper
     }
 

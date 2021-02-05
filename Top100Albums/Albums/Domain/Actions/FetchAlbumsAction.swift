@@ -4,7 +4,7 @@
 
 import Foundation
 
-class FetchAlbumsAction {
+class FetchAlbumsAction: FetchAlbumsActionContract {
 
     let albumsStorage: AlbumsStorage
     let albumsService: AlbumsServiceContract
@@ -29,4 +29,8 @@ class FetchAlbumsAction {
             }
         }
     }
+}
+
+protocol FetchAlbumsActionContract {
+    func fetch(completion: @escaping (Bool) -> Void)
 }
