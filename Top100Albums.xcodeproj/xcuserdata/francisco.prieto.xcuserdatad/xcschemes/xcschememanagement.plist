@@ -14,35 +14,35 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
-		<key>InMemoryAlbumsTest.test_whenSavingAnAlbum_shouldBeAbleToRetrieveIt.xcscheme</key>
+		<key>InMemoryAlbumsTest.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false />
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
-		<key>InMemoryAlbumsTest.test_whenSavingMultipleAlbums_shouldBeAbleToRetrieveThemInOrder.xcscheme</key>
+		<key>FetchAlbumsActionTest.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false />
 			<key>orderHint</key>
 			<integer>3</integer>
 		</dict>
-		<key>InMemoryAlbumsTest.test_whenSavingMultipleAlbums_shouldRetrieveCorrectCount.xcscheme</key>
+		<key>GetAlbumImageActionTest.test_getAlbumImage_shouldReturnImage_whenImageIsAlreadyInTheCache.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false />
 			<key>orderHint</key>
 			<integer>4</integer>
 		</dict>
-		<key>InMemoryAlbumsTest.xcscheme</key>
+		<key>GetAlbumImageActionTest.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false />
 			<key>orderHint</key>
 			<integer>5</integer>
 		</dict>
-		<key>FetchAlbumsActionTest.xcscheme</key>
+		<key>GetAlbumImageActionTest.test_getAlbumImage_shouldReturnImage_whenServiceSucceeds.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false />
