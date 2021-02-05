@@ -7,4 +7,5 @@ import Foundation
 enum GetImageError: Swift.Error {
     case selfInstanceError
     case imageCreationError
+    case imageMappingError
 }

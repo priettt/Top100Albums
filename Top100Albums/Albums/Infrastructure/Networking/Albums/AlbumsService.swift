@@ -8,20 +8,20 @@ protocol AlbumsServiceContract {
     func getAlbums(completion: @escaping (Result<[Album], Error>) -> Void)
 }
 
-struct AlbumsService: AlbumsServiceContract {
-    private let client: URLSessionClient
-    private let albumsResponseMapper: AlbumsResponseMapper
+class AlbumsService: AlbumsServiceContract {
+    private let client: URLSessionClientContract
+    private let albumsResponseMapper: AlbumsResponseMapperContract
 
-    init(client: URLSessionClient, albumsResponseMapper: AlbumsResponseMapper) {
+    init(client: URLSessionClientContract, albumsResponseMapper: AlbumsResponseMapperContract) {
         self.client = client
         self.albumsResponseMapper = albumsResponseMapper
     }
 
     func getAlbums(completion: @escaping (Result<[Album], Error>) -> Void) {
-        client.call(endpoint: GetAlbumsEndpoint()) { result in
+        client.call(endpoint: GetAlbumsEndpoint()) { [weak self] result in
             switch result {
             case .success(let data):
-                guard let albums = albumsResponseMapper.getAlbums(response: data) else {
+                guard let albums = self?.albumsResponseMapper.getAlbums(response: data) else {
                     completion(.failure(NetworkError.dataMappingError))
                     return
                 }

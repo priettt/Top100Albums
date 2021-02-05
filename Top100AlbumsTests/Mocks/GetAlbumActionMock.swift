@@ -7,17 +7,7 @@ import Foundation
 
 class GetAlbumActionMock: GetAlbumActionContract {
 
-    private let testAlbum = Album(id: "testId",
-            artistName: "testArtistName",
-            albumName: "testAlbumName",
-            albumImageUrl: URL(fileURLWithPath: "test"),
-            genres: ["genre1", "genre2"],
-            releaseDate: "releaseDate",
-            copyright: "copyright",
-            albumUrl: URL.init(fileURLWithPath: "test")
-    )
-
     func getAlbum(at index: Int) -> Album {
-        return testAlbum
+        return TestObjects.testAlbum
     }
 }

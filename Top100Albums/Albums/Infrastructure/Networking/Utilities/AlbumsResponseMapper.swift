@@ -4,7 +4,7 @@
 
 import Foundation
 
-class AlbumsResponseMapper {
+class AlbumsResponseMapper: AlbumsResponseMapperContract {
     func getAlbums(response: Data) -> [Album]? {
         let jsonDecoder = JSONDecoder()
         let feed = try? jsonDecoder.decode(GetAlbumResponseData.self, from: response)
@@ -31,4 +31,8 @@ class AlbumsResponseMapper {
                 copyright: response.copyright,
                 albumUrl: response.url)
     }
+}
+
+protocol AlbumsResponseMapperContract {
+    func getAlbums(response: Data) -> [Album]?
 }

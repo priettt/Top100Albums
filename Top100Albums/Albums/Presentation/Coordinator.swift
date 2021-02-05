@@ -24,7 +24,7 @@ class Coordinator: CoordinatorDelegate {
     }
 
     func goToDetail(selectedAlbum: Album) {
-        let viewModel = AlbumDetailViewModel(album: selectedAlbum, getAlbumImageAction: GetAlbumImageAction(albumImageService: AlbumImageService(client: URLSessionClient()), albumImageStorage: AlbumImageCache.shared), albumDetailMapper: AlbumDetailMapper())
+        let viewModel = AlbumDetailViewModel(album: selectedAlbum, getAlbumImageAction: GetAlbumImageAction(albumImageService: AlbumImageService(client: URLSessionClient(), imageDataMapper: ImageDataMapper()), albumImageStorage: AlbumImageCache.shared), albumDetailMapper: AlbumDetailMapper())
         let viewController = AlbumDetailViewController(viewModel: viewModel)
         navigationController.pushViewController(viewController, animated: true)
     }

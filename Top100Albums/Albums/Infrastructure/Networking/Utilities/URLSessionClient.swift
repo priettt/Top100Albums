@@ -4,7 +4,7 @@
 
 import Foundation
 
-struct URLSessionClient {
+struct URLSessionClient: URLSessionClientContract {
     func call(endpoint: Endpoint, completion: @escaping (Result<Data, Error>) -> Void) {
         guard let url = endpoint.url else {
             completion(.failure(NetworkError.urlError))
@@ -19,4 +19,8 @@ struct URLSessionClient {
             }
         }.resume()
     }
+}
+
+protocol URLSessionClientContract {
+    func call(endpoint: Endpoint, completion: @escaping (Result<Data, Error>) -> Void)
 }

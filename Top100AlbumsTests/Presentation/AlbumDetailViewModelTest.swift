@@ -46,16 +46,7 @@ class AlbumDetailViewModelTest: XCTestCase, AlbumDetailViewModelDelegate {
     }
 
     private func setupViewModel() {
-        let testAlbum = Album(id: "testId",
-                artistName: "testArtistName",
-                albumName: "testAlbumName",
-                albumImageUrl: URL(fileURLWithPath: "test"),
-                genres: ["genre1", "genre2"],
-                releaseDate: "releaseDate",
-                copyright: "copyright",
-                albumUrl: URL.init(fileURLWithPath: "test")
-        )
-        viewModel = AlbumDetailViewModel(album: testAlbum, getAlbumImageAction: getAlbumImageActionMock, albumDetailMapper: albumDetailMapperMock)
+        viewModel = AlbumDetailViewModel(album: TestObjects.testAlbum, getAlbumImageAction: getAlbumImageActionMock, albumDetailMapper: albumDetailMapperMock)
         viewModel?.delegate = self
     }
 
