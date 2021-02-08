@@ -43,7 +43,7 @@ class AlbumTableViewCell: UITableViewCell {
     }()
 
     override init(style: CellStyle, reuseIdentifier: String?) {
-        viewModel = AlbumCellViewModel(getAlbumImageAction: GetAlbumImageAction(albumImageService: AlbumImageService(client: URLSessionClient(), imageDataMapper: ImageDataMapper()), albumImageStorage: AlbumImageCache()))
+        viewModel = AlbumCellViewModel(getAlbumImageAction: GetAlbumImageAction(albumImageService: AlbumImageService(client: URLSessionClient(), imageDataMapper: ImageDataMapper()), albumImageStorage: AlbumImageCache.shared))
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         viewModel.delegate = self
         setupView()

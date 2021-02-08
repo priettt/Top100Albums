@@ -54,7 +54,7 @@ class AlbumsViewController: UIViewController {
     }
 
     private func setupTitle() {
-        self.title = "Top 100 Albums"
+        title = "Top 100 Albums"
     }
 
     private func setupAlbums() {
